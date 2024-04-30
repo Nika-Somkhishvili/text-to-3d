@@ -3,15 +3,45 @@
     <head>
         <title>Text to 3d</title>
         <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
     </head>
     <body>
         <div class="wrapper">
             <div class="control-panel">
                 <div class="ui-main">
-                    <h3>Generate 3d models from text prompts</h3>
+                    <h2>Generate 3d models from text prompts</h2>
+                    <br /><br />
                     <p>Write text description</p>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <button>Generate</button>
+                    <textarea
+                        name=""
+                        id="prompt"
+                        cols="30"
+                        rows="10"
+                    ></textarea>
+                    <div class="flex">
+                        <label for="styles">Choose art style:</label>
+                        <select id="styles">
+                            <option value="realistic">Realistic</option>
+                            <option value="lowpoly">Lowpoly</option>
+                            <option value="cartoony">Cartoony</option>
+                        </select>
+                    </div>
+                    <div class="flex">
+                        <button id="generate-btn">
+                            Generate
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                        </button>
+                        <button id="download-btn">
+                            Download Model as gLTF
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div id="canvas-box"><canvas id="canvas3d"></canvas></div>

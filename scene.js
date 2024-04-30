@@ -3,10 +3,11 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.134.0/examples/js
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.134.0/examples/jsm/loaders/GLTFLoader.js";
 
 const canvasBox = document.getElementById("canvas-box");
+const canvasMargin = 20;
 // get canvas size
 const canvasSize = {
-    width: canvasBox.offsetWidth,
-    height: canvasBox.offsetHeight,
+    width: canvasBox.offsetWidth - canvasMargin,
+    height: canvasBox.offsetHeight - canvasMargin,
 };
 const mousePos = {
     x: window.innerWidth / 2,
@@ -42,9 +43,10 @@ renderer.outputEncoding = THREE.sRGBEncoding; //(for hdr)
 renderer.toneMapping = THREE.ACESFilmicToneMapping; // (for hdr)
 renderer.toneMappingExposure = 2;
 
-// // add grid
-// const gridHelper = new THREE.GridHelper(5, 20, 0x111111, 0x222222);
-// scene.add(gridHelper);
+// add grid
+const gridHelper = new THREE.GridHelper(5, 20, 0x111111, 0x222222);
+scene.add(gridHelper);
+gridHelper.position.setY(-1.75);
 
 // // add ambient light
 // const ambientLight = new THREE.AmbientLight(0xffffff);
@@ -104,8 +106,8 @@ resize();
 window.addEventListener("resize", resize);
 function resize() {
     // Update canvas sizes
-    canvasSize.width = canvasBox.offsetWidth;
-    canvasSize.height = canvasBox.offsetHeight;
+    canvasSize.width = canvasBox.offsetWidth - canvasMargin;
+    canvasSize.height = canvasBox.offsetHeight - canvasMargin;
 
     // Update camera
     camera.aspect = canvasSize.width / canvasSize.height;

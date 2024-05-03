@@ -84,7 +84,7 @@ controls.autoRotate = true;
 // import 3d model
 let model;
 let loader = new GLTFLoader();
-loader.load("animated_triceratops_skeleton.glb", function (obj) {
+loader.load("/static/animated_triceratops_skeleton.glb", function (obj) {
     model = obj.scene;
 
     // // center it
